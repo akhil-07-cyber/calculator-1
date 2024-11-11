@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication and Division Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input[type="number"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multiplication and Division Calculator</h1>
+    <form id="calcForm">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" required>
+        
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" required>
+        
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const multiplicationResult = num1 * num2;
+            const divisionResult = num2 !== 0 ? (num1 / num2).toFixed(2) : 'undefined (division by zero)';
+            
+            document.getElementById('result').innerHTML = 
+                `Multiplication: ${multiplicationResult}<br>` +
+                `Division: ${divisionResult}`;
+        }
+    </script>
+
+</body>
+</html>
